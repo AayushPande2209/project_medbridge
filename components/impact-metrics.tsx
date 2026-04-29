@@ -61,8 +61,8 @@ function StatCard({
   const Icon = stat.icon
   return (
     <div className="flex flex-col gap-4 p-8 bg-white/5 border border-white/10 rounded-xl">
-      <div className="w-10 h-10 rounded-lg bg-brand-teal/20 flex items-center justify-center">
-        <Icon size={20} className="text-brand-teal" strokeWidth={1.5} />
+      <div className="w-10 h-10 rounded-lg bg-brand-red/20 flex items-center justify-center">
+        <Icon size={20} className="text-brand-red" strokeWidth={1.5} />
       </div>
       <div>
         <p className="text-4xl font-semibold text-white tabular-nums">
@@ -99,7 +99,7 @@ export default function ImpactMetrics() {
   return (
     <section id="impact" className="py-24 bg-brand-navy" ref={ref}>
       <div className="max-w-6xl mx-auto px-6">
-        <p className="text-xs font-semibold tracking-widest uppercase text-brand-teal mb-4">Our Impact</p>
+        <p className="text-xs font-semibold tracking-widest uppercase text-brand-red mb-4">Our Impact</p>
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-14">
           <h2 className="text-3xl md:text-4xl font-semibold text-white leading-tight tracking-tight text-balance max-w-xl">
             Real Supplies. Real Communities. Measurable Change.

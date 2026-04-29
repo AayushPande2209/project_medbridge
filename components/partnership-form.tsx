@@ -38,12 +38,14 @@ export default function PartnershipForm() {
   } = useForm<FormData>({ resolver: zodResolver(schema) })
 
   const onSubmit = async (data: FormData) => {
-    // Simulate async submission
     await new Promise((r) => setTimeout(r, 800))
     console.log("Partnership inquiry:", data)
     setSubmitted(true)
     reset()
   }
+
+  const inputClass =
+    "px-3 py-2.5 rounded-md border border-input bg-background text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring transition"
 
   return (
     <section id="partnership" className="py-24 bg-background">
@@ -51,7 +53,7 @@ export default function PartnershipForm() {
         <div className="grid md:grid-cols-2 gap-16 items-start">
           {/* Left — copy */}
           <div>
-            <p className="text-xs font-semibold tracking-widest uppercase text-brand-teal mb-4">Partner With Us</p>
+            <p className="text-xs font-semibold tracking-widest uppercase text-brand-red mb-4">Partner With Us</p>
             <h2 className="text-3xl md:text-4xl font-semibold text-foreground leading-tight tracking-tight text-balance mb-6">
               Ready to Turn Surplus Into Impact?
             </h2>
@@ -68,8 +70,8 @@ export default function PartnershipForm() {
                 "Quarterly impact report with your contribution data",
               ].map((item) => (
                 <li key={item} className="flex items-start gap-3 text-sm text-foreground">
-                  <span className="w-5 h-5 rounded-full bg-brand-teal-light flex items-center justify-center flex-shrink-0 mt-0.5">
-                    <CheckCircle size={12} className="text-brand-teal" />
+                  <span className="w-5 h-5 rounded-full bg-brand-ice border border-brand-slate-light flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <CheckCircle size={12} className="text-brand-navy" />
                   </span>
                   {item}
                 </li>
@@ -81,8 +83,8 @@ export default function PartnershipForm() {
           <div className="bg-card border border-border rounded-2xl p-8">
             {submitted ? (
               <div className="flex flex-col items-center justify-center gap-4 text-center py-12">
-                <div className="w-14 h-14 rounded-full bg-brand-teal-light flex items-center justify-center">
-                  <CheckCircle size={28} className="text-brand-teal" />
+                <div className="w-14 h-14 rounded-full bg-brand-ice flex items-center justify-center">
+                  <CheckCircle size={28} className="text-brand-navy" />
                 </div>
                 <h3 className="text-lg font-semibold text-foreground">Inquiry Received</h3>
                 <p className="text-muted-foreground text-sm leading-relaxed max-w-xs">
@@ -90,7 +92,7 @@ export default function PartnershipForm() {
                 </p>
                 <button
                   onClick={() => setSubmitted(false)}
-                  className="mt-2 text-xs text-brand-teal underline underline-offset-2 hover:text-brand-teal-dark"
+                  className="mt-2 text-xs text-brand-red underline underline-offset-2 hover:text-brand-red-dark"
                 >
                   Submit another inquiry
                 </button>
@@ -103,32 +105,32 @@ export default function PartnershipForm() {
                 <div className="grid sm:grid-cols-2 gap-4">
                   <div className="flex flex-col gap-1.5">
                     <label htmlFor="institutionName" className="text-xs font-medium text-foreground">
-                      Institution Name <span className="text-destructive">*</span>
+                      Institution Name <span className="text-brand-red">*</span>
                     </label>
                     <input
                       id="institutionName"
                       type="text"
                       placeholder="e.g. OhioHealth Riverside"
-                      className="px-3 py-2.5 rounded-md border border-input bg-background text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring transition"
+                      className={inputClass}
                       {...register("institutionName")}
                     />
                     {errors.institutionName && (
-                      <p className="text-xs text-destructive">{errors.institutionName.message}</p>
+                      <p className="text-xs text-brand-red">{errors.institutionName.message}</p>
                     )}
                   </div>
                   <div className="flex flex-col gap-1.5">
                     <label htmlFor="contactName" className="text-xs font-medium text-foreground">
-                      Contact Name <span className="text-destructive">*</span>
+                      Contact Name <span className="text-brand-red">*</span>
                     </label>
                     <input
                       id="contactName"
                       type="text"
                       placeholder="Full name"
-                      className="px-3 py-2.5 rounded-md border border-input bg-background text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring transition"
+                      className={inputClass}
                       {...register("contactName")}
                     />
                     {errors.contactName && (
-                      <p className="text-xs text-destructive">{errors.contactName.message}</p>
+                      <p className="text-xs text-brand-red">{errors.contactName.message}</p>
                     )}
                   </div>
                 </div>
@@ -137,29 +139,29 @@ export default function PartnershipForm() {
                 <div className="grid sm:grid-cols-2 gap-4">
                   <div className="flex flex-col gap-1.5">
                     <label htmlFor="role" className="text-xs font-medium text-foreground">
-                      Role / Title <span className="text-destructive">*</span>
+                      Role / Title <span className="text-brand-red">*</span>
                     </label>
                     <input
                       id="role"
                       type="text"
                       placeholder="e.g. Supply Chain Manager"
-                      className="px-3 py-2.5 rounded-md border border-input bg-background text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring transition"
+                      className={inputClass}
                       {...register("role")}
                     />
-                    {errors.role && <p className="text-xs text-destructive">{errors.role.message}</p>}
+                    {errors.role && <p className="text-xs text-brand-red">{errors.role.message}</p>}
                   </div>
                   <div className="flex flex-col gap-1.5">
                     <label htmlFor="email" className="text-xs font-medium text-foreground">
-                      Email Address <span className="text-destructive">*</span>
+                      Email Address <span className="text-brand-red">*</span>
                     </label>
                     <input
                       id="email"
                       type="email"
                       placeholder="you@hospital.org"
-                      className="px-3 py-2.5 rounded-md border border-input bg-background text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring transition"
+                      className={inputClass}
                       {...register("email")}
                     />
-                    {errors.email && <p className="text-xs text-destructive">{errors.email.message}</p>}
+                    {errors.email && <p className="text-xs text-brand-red">{errors.email.message}</p>}
                   </div>
                 </div>
 
@@ -172,7 +174,7 @@ export default function PartnershipForm() {
                     id="phone"
                     type="tel"
                     placeholder="(614) 555-0100"
-                    className="px-3 py-2.5 rounded-md border border-input bg-background text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring transition"
+                    className={inputClass}
                     {...register("phone")}
                   />
                 </div>
@@ -180,28 +182,28 @@ export default function PartnershipForm() {
                 {/* Supply types */}
                 <div className="flex flex-col gap-1.5">
                   <label htmlFor="supplyTypes" className="text-xs font-medium text-foreground">
-                    Available Supply Types <span className="text-destructive">*</span>
+                    Available Supply Types <span className="text-brand-red">*</span>
                   </label>
                   <input
                     id="supplyTypes"
                     type="text"
                     placeholder="e.g. gloves, gauze, IV tubing, syringes"
-                    className="px-3 py-2.5 rounded-md border border-input bg-background text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring transition"
+                    className={inputClass}
                     {...register("supplyTypes")}
                   />
                   {errors.supplyTypes && (
-                    <p className="text-xs text-destructive">{errors.supplyTypes.message}</p>
+                    <p className="text-xs text-brand-red">{errors.supplyTypes.message}</p>
                   )}
                 </div>
 
                 {/* Frequency */}
                 <div className="flex flex-col gap-1.5">
                   <label htmlFor="frequency" className="text-xs font-medium text-foreground">
-                    Preferred Donation Frequency <span className="text-destructive">*</span>
+                    Preferred Donation Frequency <span className="text-brand-red">*</span>
                   </label>
                   <select
                     id="frequency"
-                    className="px-3 py-2.5 rounded-md border border-input bg-background text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-ring transition"
+                    className={inputClass}
                     {...register("frequency")}
                   >
                     <option value="">Select frequency</option>
@@ -212,7 +214,7 @@ export default function PartnershipForm() {
                     ))}
                   </select>
                   {errors.frequency && (
-                    <p className="text-xs text-destructive">{errors.frequency.message}</p>
+                    <p className="text-xs text-brand-red">{errors.frequency.message}</p>
                   )}
                 </div>
 
@@ -225,7 +227,7 @@ export default function PartnershipForm() {
                     id="message"
                     rows={3}
                     placeholder="Any constraints, questions, or context we should know..."
-                    className="px-3 py-2.5 rounded-md border border-input bg-background text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring transition resize-none"
+                    className={`${inputClass} resize-none`}
                     {...register("message")}
                   />
                 </div>
@@ -233,7 +235,7 @@ export default function PartnershipForm() {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full py-3 rounded-md bg-brand-teal text-white font-semibold text-sm hover:bg-brand-teal-dark transition-colors disabled:opacity-60 disabled:cursor-not-allowed"
+                  className="w-full py-3 rounded-md bg-brand-red text-white font-semibold text-sm hover:bg-brand-red-dark transition-colors disabled:opacity-60 disabled:cursor-not-allowed"
                 >
                   {isSubmitting ? "Submitting..." : "Submit Inquiry"}
                 </button>

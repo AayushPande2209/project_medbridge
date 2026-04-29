@@ -25,7 +25,7 @@ export default function Footer() {
           {/* Brand column */}
           <div className="md:col-span-1">
             <a href="#" className="flex items-center gap-2 mb-4">
-              <span className="w-7 h-7 rounded-md bg-brand-teal flex items-center justify-center flex-shrink-0">
+              <span className="w-7 h-7 rounded-md bg-brand-red flex items-center justify-center flex-shrink-0">
                 <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
                   <path d="M8 2v12M2 8h12" stroke="white" strokeWidth="2.5" strokeLinecap="round" />
                 </svg>

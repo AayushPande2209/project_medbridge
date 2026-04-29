@@ -27,19 +27,19 @@ export default function NewsletterSection() {
   }
 
   return (
-    <section className="py-20 bg-brand-teal-light/40 border-y border-brand-teal/20">
+    <section className="py-20 bg-brand-navy border-y border-white/10">
       <div className="max-w-2xl mx-auto px-6 text-center">
-        <p className="text-xs font-semibold tracking-widest uppercase text-brand-teal mb-3">Stay Updated</p>
-        <h2 className="text-2xl md:text-3xl font-semibold text-foreground tracking-tight text-balance mb-3">
+        <p className="text-xs font-semibold tracking-widest uppercase text-brand-slate mb-3">Stay Updated</p>
+        <h2 className="text-2xl md:text-3xl font-semibold text-white tracking-tight text-balance mb-3">
           Quarterly Updates Straight to Your Inbox
         </h2>
-        <p className="text-muted-foreground text-sm leading-relaxed mb-8 text-pretty">
+        <p className="text-white/60 text-sm leading-relaxed mb-8 text-pretty">
           Subscribe to receive our quarterly impact reports, upcoming Boxing Day dates, and partnership spotlights —
           no spam, unsubscribe anytime.
         </p>
 
         {status === "success" ? (
-          <div className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-brand-teal text-white text-sm font-medium">
+          <div className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-brand-red text-white text-sm font-medium">
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
               <path d="M3 8l3.5 3.5L13 5" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
@@ -53,15 +53,15 @@ export default function NewsletterSection() {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="your@hospital.org"
-                className="w-full px-4 py-3 rounded-md border border-input bg-white text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring transition"
+                className="w-full px-4 py-3 rounded-md border border-white/20 bg-white/10 text-white text-sm placeholder:text-white/40 focus:outline-none focus:ring-2 focus:ring-brand-slate transition"
                 aria-label="Email address for newsletter"
               />
-              {errorMsg && <p className="text-xs text-destructive mt-1 text-left">{errorMsg}</p>}
+              {errorMsg && <p className="text-xs text-brand-red mt-1 text-left">{errorMsg}</p>}
             </div>
             <button
               type="submit"
               disabled={status === "submitting"}
-              className="px-5 py-3 rounded-md bg-brand-navy text-white font-semibold text-sm hover:bg-brand-teal transition-colors disabled:opacity-60 whitespace-nowrap"
+              className="px-5 py-3 rounded-md bg-brand-red text-white font-semibold text-sm hover:bg-brand-red-dark transition-colors disabled:opacity-60 whitespace-nowrap"
             >
               {status === "submitting" ? "Subscribing..." : "Subscribe"}
             </button>

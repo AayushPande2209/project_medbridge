@@ -21,7 +21,7 @@ export default function ProblemSection() {
     <section id="problem" className="py-24 bg-background">
       <div className="max-w-6xl mx-auto px-6">
         {/* Section label */}
-        <p className="text-xs font-semibold tracking-widest uppercase text-brand-teal mb-4">The Problem</p>
+        <p className="text-xs font-semibold tracking-widest uppercase text-brand-red mb-4">The Problem</p>
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-16">
           <h2 className="text-3xl md:text-4xl font-semibold text-foreground leading-tight tracking-tight text-balance max-w-xl">
             A System-Wide Surplus and a Community in Need
@@ -36,10 +36,10 @@ export default function ProblemSection() {
           {points.map((point, i) => (
             <div
               key={i}
-              className="group relative p-8 rounded-xl border border-border bg-card hover:border-brand-teal/40 hover:shadow-md transition-all duration-200"
+              className="group relative p-8 rounded-xl border border-border bg-card hover:border-brand-slate hover:shadow-md transition-all duration-200"
             >
-              <div className="w-8 h-8 rounded-md bg-brand-teal-light flex items-center justify-center mb-6">
-                <span className="text-brand-teal font-bold text-sm">{String(i + 1).padStart(2, "0")}</span>
+              <div className="w-8 h-8 rounded-md bg-brand-slate-light flex items-center justify-center mb-6">
+                <span className="text-brand-navy font-bold text-sm">{String(i + 1).padStart(2, "0")}</span>
               </div>
               <h3 className="font-semibold text-foreground mb-3 text-base">{point.title}</h3>
               <p className="text-muted-foreground text-sm leading-relaxed">{point.body}</p>

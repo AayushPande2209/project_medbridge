@@ -19,7 +19,7 @@ export default function PartnersSection() {
   return (
     <section id="partners" className="py-24 bg-background">
       <div className="max-w-6xl mx-auto px-6">
-        <p className="text-xs font-semibold tracking-widest uppercase text-brand-teal mb-4">Community</p>
+        <p className="text-xs font-semibold tracking-widest uppercase text-brand-red mb-4">Community</p>
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-16">
           <h2 className="text-3xl md:text-4xl font-semibold text-foreground leading-tight tracking-tight text-balance max-w-xl">
             Trusted by Healthcare Leaders Across Columbus
@@ -40,7 +40,7 @@ export default function PartnersSection() {
               {partners.map((p) => (
                 <div
                   key={p.name}
-                  className="flex items-center justify-between px-5 py-4 rounded-lg border border-border bg-card hover:border-brand-teal/30 hover:bg-brand-teal-light/20 transition-all duration-150"
+                  className="flex items-center justify-between px-5 py-4 rounded-lg border border-border bg-card hover:border-brand-slate hover:shadow-sm transition-all duration-150"
                 >
                   <span className="font-medium text-sm text-foreground">{p.name}</span>
                   <span className="text-xs text-muted-foreground">{p.type}</span>
@@ -58,9 +58,9 @@ export default function PartnersSection() {
               {beneficiaries.map((b) => (
                 <div
                   key={b}
-                  className="flex items-center gap-3 px-5 py-4 rounded-lg border border-border bg-card hover:border-brand-teal/30 hover:bg-brand-teal-light/20 transition-all duration-150"
+                  className="flex items-center gap-3 px-5 py-4 rounded-lg border border-border bg-card hover:border-brand-slate hover:shadow-sm transition-all duration-150"
                 >
-                  <span className="w-2 h-2 rounded-full bg-brand-teal flex-shrink-0" aria-hidden="true" />
+                  <span className="w-2 h-2 rounded-full bg-brand-red flex-shrink-0" aria-hidden="true" />
                   <span className="font-medium text-sm text-foreground">{b}</span>
                 </div>
               ))}
@@ -75,7 +75,7 @@ export default function PartnersSection() {
               </p>
               <a
                 href="#partnership"
-                className="inline-block px-4 py-2 rounded-md bg-brand-teal text-white text-xs font-semibold hover:bg-brand-teal-dark transition-colors"
+                className="inline-block px-4 py-2 rounded-md bg-brand-red text-white text-xs font-semibold hover:bg-brand-red-dark transition-colors"
               >
                 Get Started
               </a>

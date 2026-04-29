@@ -8,29 +8,29 @@ export default function Hero() {
         className="absolute inset-0 opacity-[0.04]"
         style={{
           backgroundImage:
-            "linear-gradient(oklch(0.99 0 0) 1px, transparent 1px), linear-gradient(90deg, oklch(0.99 0 0) 1px, transparent 1px)",
+            "linear-gradient(#EDF2F4 1px, transparent 1px), linear-gradient(90deg, #EDF2F4 1px, transparent 1px)",
           backgroundSize: "48px 48px",
         }}
         aria-hidden="true"
       />
 
-      {/* Teal accent orb */}
+      {/* Slate accent orb */}
       <div
-        className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full opacity-10"
-        style={{ background: "radial-gradient(circle, oklch(0.62 0.12 196), transparent 70%)" }}
+        className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full opacity-[0.07]"
+        style={{ background: "radial-gradient(circle, #8D99AE, transparent 70%)" }}
         aria-hidden="true"
       />
 
       <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
         <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-white/20 bg-white/10 text-white/80 text-xs font-medium tracking-wide uppercase mb-8">
-          <span className="w-1.5 h-1.5 rounded-full bg-brand-teal animate-pulse" aria-hidden="true" />
+          <span className="w-1.5 h-1.5 rounded-full bg-brand-red animate-pulse" aria-hidden="true" />
           Central Ohio &mdash; Student-Led Nonprofit
         </div>
 
         <h1 className="text-4xl sm:text-5xl md:text-6xl font-semibold text-white leading-tight tracking-tight text-balance mb-6">
           Turning Surplus Supplies
           <br />
-          <span className="text-brand-teal">Into Lasting Impact</span>
+          <span className="text-brand-red">Into Lasting Impact</span>
         </h1>
 
         <p className="text-lg md:text-xl text-white/70 leading-relaxed max-w-2xl mx-auto mb-10 text-pretty">
@@ -41,7 +41,7 @@ export default function Hero() {
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <a
             href="#partnership"
-            className="px-7 py-3.5 rounded-md bg-brand-teal text-white font-semibold text-sm hover:bg-brand-teal-dark transition-colors"
+            className="px-7 py-3.5 rounded-md bg-brand-red text-white font-semibold text-sm hover:bg-brand-red-dark transition-colors"
           >
             Partner With Us
           </a>

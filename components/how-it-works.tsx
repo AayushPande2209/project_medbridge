@@ -29,9 +29,9 @@ const steps = [
 
 export default function HowItWorks() {
   return (
-    <section id="how-it-works" className="py-24 bg-muted/40">
+    <section id="how-it-works" className="py-24 bg-white">
       <div className="max-w-6xl mx-auto px-6">
-        <p className="text-xs font-semibold tracking-widest uppercase text-brand-teal mb-4">Process</p>
+        <p className="text-xs font-semibold tracking-widest uppercase text-brand-red mb-4">Process</p>
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-16">
           <h2 className="text-3xl md:text-4xl font-semibold text-foreground leading-tight tracking-tight text-balance max-w-xl">
             Simple, Compliant, and No-Cost to Your Organization
@@ -45,7 +45,7 @@ export default function HowItWorks() {
         <div className="relative grid md:grid-cols-4 gap-6">
           {/* Connector line (desktop) */}
           <div
-            className="absolute top-10 left-[12.5%] right-[12.5%] h-px bg-brand-teal/20 hidden md:block"
+            className="absolute top-10 left-[12.5%] right-[12.5%] h-px bg-brand-slate/30 hidden md:block"
             aria-hidden="true"
           />
 
@@ -53,8 +53,8 @@ export default function HowItWorks() {
             const Icon = step.icon
             return (
               <div key={i} className="relative flex flex-col gap-4">
-                <div className="relative z-10 w-20 h-20 rounded-2xl bg-white border border-border flex items-center justify-center shadow-sm">
-                  <Icon size={28} className="text-brand-teal" strokeWidth={1.5} />
+                <div className="relative z-10 w-20 h-20 rounded-2xl bg-brand-ice border border-border flex items-center justify-center shadow-sm">
+                  <Icon size={28} className="text-brand-navy" strokeWidth={1.5} />
                 </div>
                 <div>
                   <p className="text-xs text-muted-foreground font-medium mb-1">Step {i + 1}</p>
