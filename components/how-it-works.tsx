@@ -53,8 +53,8 @@ export default function HowItWorks() {
             const Icon = step.icon
             return (
               <div key={i} className="relative flex flex-col gap-4">
-                <div className="relative z-10 w-20 h-20 rounded-2xl bg-brand-ice border border-border flex items-center justify-center shadow-sm">
-                  <Icon size={28} className="text-brand-navy" strokeWidth={1.5} />
+                <div className="relative z-10 w-20 h-20 rounded-2xl bg-brand-ice border border-brand-red/20 flex items-center justify-center shadow-sm">
+                  <Icon size={28} className="text-brand-red" strokeWidth={1.5} />
                 </div>
                 <div>
                   <p className="text-xs text-muted-foreground font-medium mb-1">Step {i + 1}</p>

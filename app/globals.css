@@ -83,8 +83,8 @@
 }
 
 @theme inline {
-  --font-sans: 'Inter', 'Inter Fallback';
-  --font-mono: 'Geist Mono', 'Geist Mono Fallback';
+  --font-sans: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace;
   --color-brand-navy: var(--brand-navy);
   --color-brand-slate: var(--brand-slate);
   --color-brand-slate-light: var(--brand-slate-light);

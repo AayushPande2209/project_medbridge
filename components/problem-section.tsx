@@ -38,8 +38,8 @@ export default function ProblemSection() {
               key={i}
               className="group relative p-8 rounded-xl border border-border bg-card hover:border-brand-slate hover:shadow-md transition-all duration-200"
             >
-              <div className="w-8 h-8 rounded-md bg-brand-slate-light flex items-center justify-center mb-6">
-                <span className="text-brand-navy font-bold text-sm">{String(i + 1).padStart(2, "0")}</span>
+              <div className="w-8 h-8 rounded-md bg-brand-red flex items-center justify-center mb-6">
+                <span className="text-white font-bold text-sm">{String(i + 1).padStart(2, "0")}</span>
               </div>
               <h3 className="font-semibold text-foreground mb-3 text-base">{point.title}</h3>
               <p className="text-muted-foreground text-sm leading-relaxed">{point.body}</p>
