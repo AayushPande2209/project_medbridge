@@ -136,4 +136,11 @@
   body {
     @apply bg-background text-foreground;
   }
+  p a, li a {
+    @apply underline text-inherit transition-colors duration-150;
+  }
+  p a:hover, li a:hover {
+    @apply text-brand-red;
+  }
 }
+

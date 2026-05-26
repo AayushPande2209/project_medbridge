@@ -1,6 +1,9 @@
 import type { Metadata } from 'next'
+import Script from 'next/script'
 import { Analytics } from '@vercel/analytics/next'
 import './globals.css'
+
+const GA_MEASUREMENT_ID = 'G-T7THZ0JGMM'
 
 export const metadata: Metadata = {
   title: 'Project MedBridge — Medical Supply Redistribution, Central Ohio',
@@ -19,6 +22,18 @@ export default function RootLayout({
     <html lang="en" className="bg-background scroll-smooth">
       <body className="font-sans antialiased">
         {children}
+        <Script
+          src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${GA_MEASUREMENT_ID}');
+          `}
+        </Script>
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>
     </html>

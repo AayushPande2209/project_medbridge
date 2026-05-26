@@ -1,42 +1,40 @@
+import Image from "next/image"
+
 const footerLinks = {
   Organization: [
-    { label: "About MedBridge", href: "#problem" },
+    { label: "The Problem", href: "#problem" },
     { label: "How It Works", href: "#how-it-works" },
-    { label: "Our Impact", href: "#impact" },
-    { label: "Community Partners", href: "#partners" },
+    { label: "Our Team", href: "#team" },
   ],
   Resources: [
-    { label: "Quarterly Reports", href: "#reports" },
     { label: "Become a Partner", href: "#partnership" },
-    { label: "Newsletter", href: "#newsletter" },
   ],
   Connect: [
     { label: "Instagram", href: "#" },
-    { label: "LinkedIn", href: "#" },
-    { label: "Email Us", href: "mailto:contact@projectmedbridge.org" },
+    { label: "LinkedIn", href: "https://www.linkedin.com/company/projectmedbridge/" },
+    { label: "Email Us", href: "mailto:pmedbridge@gmail.com" },
   ],
 }
 
 export default function Footer() {
   return (
-    <footer className="bg-brand-navy text-white/80">
+    <footer className="bg-[#0B0C10] text-white/80 border-t border-white/10">
       <div className="max-w-6xl mx-auto px-6 py-16">
         <div className="grid md:grid-cols-4 gap-12 mb-14">
           {/* Brand column */}
           <div className="md:col-span-1">
-            <a href="#" className="flex items-center gap-2 mb-4">
-              <span className="w-7 h-7 rounded-md bg-brand-red flex items-center justify-center flex-shrink-0">
-                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-                  <path d="M8 2v12M2 8h12" stroke="white" strokeWidth="2.5" strokeLinecap="round" />
-                </svg>
-              </span>
-              <span className="font-semibold text-white tracking-tight">MedBridge</span>
+            <a href="#" className="flex items-center mb-4">
+              <Image
+                src="/images/logo-light.svg"
+                alt="Project MedBridge Logo"
+                width={138}
+                height={40}
+                className="h-10 w-auto object-contain"
+                priority
+              />
             </a>
             <p className="text-sm leading-relaxed text-white/50 text-pretty">
-              A student-led nonprofit redistributing surplus medical supplies across Central Ohio.
-            </p>
-            <p className="mt-4 text-xs text-white/30">
-              Affiliated with HOSA &mdash; Future Health Professionals
+              One hospital&apos;s trash is another&apos;s treasure.
             </p>
           </div>
 
@@ -65,7 +63,7 @@ export default function Footer() {
             &copy; {new Date().getFullYear()} Project MedBridge. All rights reserved.
           </p>
           <p className="text-xs text-white/30">
-            Columbus, Ohio &bull; Central Ohio HOSA Chapter
+            Columbus, Ohio
           </p>
         </div>
       </div>

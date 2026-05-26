@@ -97,7 +97,7 @@ export default function ImpactMetrics() {
   }, [])
 
   return (
-    <section id="impact" className="py-24 bg-brand-navy" ref={ref}>
+    <section id="impact" className="py-24 bg-[#0B0C10]" ref={ref}>
       <div className="max-w-6xl mx-auto px-6">
         <p className="text-xs font-semibold tracking-widest uppercase text-brand-red mb-4">Our Impact</p>
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-14">

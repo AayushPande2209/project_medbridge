@@ -1,12 +1,11 @@
 import Navbar from "@/components/navbar"
 import Hero from "@/components/hero"
+import PartnerLogos from "@/components/partner-logos"
 import ProblemSection from "@/components/problem-section"
 import HowItWorks from "@/components/how-it-works"
 import ImpactMetrics from "@/components/impact-metrics"
-import PartnersSection from "@/components/partners-section"
-import QuarterlyReports from "@/components/quarterly-reports"
+import OurTeamSection from "@/components/our-team-section"
 import PartnershipForm from "@/components/partnership-form"
-import NewsletterSection from "@/components/newsletter-section"
 import Footer from "@/components/footer"
 
 export default function Home() {
@@ -14,13 +13,12 @@ export default function Home() {
     <main>
       <Navbar />
       <Hero />
+      <PartnerLogos />
       <ProblemSection />
       <HowItWorks />
-      <ImpactMetrics />
-      <PartnersSection />
-      <QuarterlyReports />
+      {/* <ImpactMetrics /> */}
+      <OurTeamSection />
       <PartnershipForm />
-      <NewsletterSection />
       <Footer />
     </main>
   )

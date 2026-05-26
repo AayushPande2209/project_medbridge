@@ -1,68 +1,70 @@
+"use client"
+
+import { useState, useEffect } from "react"
+import Image from "next/image"
 import { ArrowDown } from "lucide-react"
 
 export default function Hero() {
+  const [offset, setOffset] = useState(0)
+
+  useEffect(() => {
+    const handleScroll = () => {
+      window.requestAnimationFrame(() => {
+        setOffset(window.scrollY * 0.3)
+      })
+    }
+    window.addEventListener("scroll", handleScroll, { passive: true })
+    return () => window.removeEventListener("scroll", handleScroll)
+  }, [])
+
   return (
-    <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden bg-brand-navy">
-      {/* Subtle grid pattern */}
-      <div
-        className="absolute inset-0 opacity-[0.04]"
-        style={{
-          backgroundImage:
-            "linear-gradient(#EDF2F4 1px, transparent 1px), linear-gradient(90deg, #EDF2F4 1px, transparent 1px)",
-          backgroundSize: "48px 48px",
-        }}
-        aria-hidden="true"
-      />
-
-      {/* Slate accent orb */}
-      <div
-        className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full opacity-[0.07]"
-        style={{ background: "radial-gradient(circle, #8D99AE, transparent 70%)" }}
-        aria-hidden="true"
-      />
-
-      <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
-        <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-white/20 bg-white/10 text-white/80 text-xs font-medium tracking-wide uppercase mb-8">
-          <span className="w-1.5 h-1.5 rounded-full bg-brand-red animate-pulse" aria-hidden="true" />
-          Central Ohio &mdash; Student-Led Nonprofit
+    <section className="relative min-h-screen flex flex-col justify-center overflow-hidden bg-[#0B0C10]">
+      {/* Background Image with Overlay */}
+      <div className="absolute inset-0 z-0 select-none pointer-events-none overflow-hidden">
+        <div
+          className="absolute inset-0 w-full h-[120%] -top-[10%] will-change-transform"
+          style={{ transform: `translateY(${offset}px)` }}
+        >
+          <Image
+            src="/images/hero.jpg"
+            alt="Surplus Medical Supplies Background"
+            fill
+            priority
+            className="object-cover opacity-[0.25]"
+          />
         </div>
+        {/* Charcoal color overlay to blend */}
+        <div className="absolute inset-0 bg-[#0B0C10]/70 mix-blend-multiply z-10" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#0B0C10]/30 via-transparent to-[#0B0C10]/95 z-10" />
+      </div>
 
-        <h1 className="text-4xl sm:text-5xl md:text-6xl font-semibold text-white leading-tight tracking-tight text-balance mb-6">
-          Turning Surplus Supplies
+      <div className="relative z-20 max-w-6xl mx-auto px-6 w-full text-left">
+        <h1 className="text-6xl sm:text-7xl md:text-8xl lg:text-[6.5rem] xl:text-[7.5rem] font-black text-white leading-[1.05] tracking-tight mb-8 max-w-5xl">
+          One hospital's trash is another's
           <br />
-          <span className="text-brand-red">Into Lasting Impact</span>
-        </h1>
+          <span className="text-brand-red">treasure.</span>
 
-        <p className="text-lg md:text-xl text-white/70 leading-relaxed max-w-2xl mx-auto mb-10 text-pretty">
-          Project MedBridge connects healthcare providers with surplus medical supplies to under-resourced communities
-          across Central Ohio — reducing waste, lowering costs, and expanding access to care.
+        </h1>
+        <p className="text-xl sm:text-2xl text-white/80 leading-relaxed max-w-3xl mb-12 text-pretty">
+          Project MedBridge is Central Ohio's first student-led medical redistribution network: redirecting surplus hospital supplies to under-resourced clinics worldwide.
         </p>
 
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+        <div className="flex flex-col sm:flex-row gap-4 justify-start">
           <a
             href="#partnership"
-            className="px-7 py-3.5 rounded-md bg-brand-red text-white font-semibold text-sm hover:bg-brand-red-dark transition-colors"
+            className="px-8 py-4 rounded-md bg-brand-red text-white font-semibold text-sm hover:bg-brand-red-dark transition-colors shadow-lg shadow-brand-red/20 text-center"
           >
             Partner With Us
           </a>
           <a
             href="#how-it-works"
-            className="px-7 py-3.5 rounded-md border border-white/30 text-white font-semibold text-sm hover:bg-white/10 transition-colors"
+            className="px-8 py-4 rounded-md border border-white/30 text-white font-semibold text-sm hover:bg-white/10 transition-colors text-center"
           >
             How It Works
           </a>
         </div>
       </div>
-
-      {/* Scroll cue */}
-      <a
-        href="#problem"
-        className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-white/40 hover:text-white/70 transition-colors"
-        aria-label="Scroll to next section"
-      >
-        <span className="text-xs tracking-widest uppercase">Scroll</span>
-        <ArrowDown size={14} className="animate-bounce" />
-      </a>
     </section>
   )
 }
+
