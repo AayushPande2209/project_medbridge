@@ -10,8 +10,8 @@ const partners = [
 export default function PartnerLogos() {
   return (
     <section className="bg-brand-ice border-y border-border/60">
-      <div className="max-w-6xl mx-auto px-6 py-12">
-        <p className="text-xs font-semibold tracking-widest uppercase text-muted-foreground mb-10 text-center">Supported by</p>
+      <div className="max-w-6xl mx-auto px-6 py-9">
+        <p className="text-xs text-muted-foreground mb-6 text-center">Supported by</p>
         <div className="flex flex-wrap items-center justify-center gap-x-16 gap-y-8">
           {partners.map((p) => (
             <a
@@ -20,7 +20,7 @@ export default function PartnerLogos() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label={`Visit ${p.name}`}
-              className="block transition-opacity duration-200 hover:opacity-70 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-red rounded-sm"
+              className="block transition-opacity duration-200 hover:opacity-70 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-red"
             >
               <Image
                 src={p.src}

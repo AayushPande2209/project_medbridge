@@ -6,11 +6,10 @@ import './globals.css'
 const GA_MEASUREMENT_ID = 'G-T7THZ0JGMM'
 
 export const metadata: Metadata = {
-  title: 'Project MedBridge — Medical Supply Redistribution, Central Ohio',
+  title: 'Project MedBridge: Medical Supply Redistribution, Central Ohio',
   description:
-    'Project MedBridge is a student-led nonprofit that redistributes surplus medical supplies from healthcare providers to under-resourced communities across Central Ohio.',
+    'Project MedBridge is a student-led group in Central Ohio that collects unused hospital supplies and sends them to clinics that can still use them.',
   keywords: ['medical supplies', 'nonprofit', 'Central Ohio', 'healthcare', 'HOSA', 'surplus redistribution'],
-  generator: 'v0.app',
 }
 
 export default function RootLayout({
