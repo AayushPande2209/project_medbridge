@@ -1,65 +1,82 @@
 import Image from "next/image"
-import { ArrowUpRight } from "lucide-react"
-import { newsStories } from "@/lib/news"
+import { carnegieProgramUrl, newsStories } from "@/lib/news"
 
+/*
+  Two stories on one 1px-rule grid.
+  Desktop rows: [photo 360px] [photo 144px] [kicker] [title] [summary] [action]
+  The Delaware Source photo spans rows 1-2; the Carnegie column uses row 2 for
+  the red funding block, so both photo areas end on the same edge and the text
+  rows below share tracks (subgrid), which keeps the kickers, titles, and
+  buttons on the same baselines.
+*/
 export default function NewsSection() {
+  const [coverage, carnegie] = newsStories
+
   return (
-    <section id="news" className="py-16 md:py-20 bg-white border-b border-border scroll-mt-16">
-      <div className="max-w-6xl mx-auto px-6">
-        <header className="pb-5 border-t-4 border-brand-red border-b border-foreground">
-          <h2 className="pt-4 text-3xl md:text-4xl font-black text-foreground leading-none tracking-tight">News</h2>
-        </header>
+    <section id="news" className="scroll-mt-16 border-b border-black bg-white py-16 md:py-24">
+      <div className="mx-auto max-w-6xl px-6">
+        <p className="text-sm font-semibold text-brand-red">News and updates</p>
+        <h2 className="mt-3 text-4xl font-bold leading-none tracking-[-0.03em] sm:text-5xl">
+          Making headlines, moving supplies.
+        </h2>
 
-        <div>
-          {newsStories.map((story) => (
-            <article
-              key={story.slug}
-              className="grid md:grid-cols-12 gap-6 md:gap-9 lg:gap-12 py-8 md:py-10 border-b border-border last:border-b-0"
-            >
-              <div className="relative md:col-span-5 aspect-[4/3] bg-muted overflow-hidden">
-                <Image
-                  src={story.image}
-                  alt={story.imageAlt}
-                  fill
-                  className={
-                    story.slug === "first-large-scale-medical-supply-pickup"
-                      ? "object-cover object-top"
-                      : "object-cover"
-                  }
-                  sizes="(max-width: 768px) 100vw, 42vw"
-                />
-              </div>
+        <div className="mt-10 grid gap-px bg-black p-px md:mt-12 lg:grid-cols-[7fr_5fr] lg:grid-rows-[360px_144px_auto_auto_1fr_auto]">
+          {/* Delaware Source */}
+          <div className="relative aspect-[3/2] bg-white lg:col-start-1 lg:row-span-2 lg:row-start-1 lg:aspect-auto">
+            <Image
+              src={coverage.image}
+              alt={coverage.imageAlt}
+              fill
+              sizes="(max-width: 1024px) 100vw, 672px"
+              className="object-cover"
+            />
+          </div>
+          <div className="flex flex-col bg-white px-6 pb-7 pt-6 md:px-8 md:pb-8 lg:col-start-1 lg:row-span-4 lg:row-start-3">
+            <p className="text-sm text-black/62">
+              {coverage.kicker} · {coverage.date}
+            </p>
+            <h3 className="mt-3 max-w-lg text-[1.75rem] font-bold leading-[1.1] tracking-[-0.02em] md:text-3xl">
+              {coverage.title}
+            </h3>
+            <p className="mt-4 max-w-lg leading-relaxed text-black/75">{coverage.summary}</p>
+            <div className="mt-auto pt-7">
+              <a href={coverage.href} target="_blank" rel="noopener noreferrer" className="btn btn-black">
+                {coverage.linkLabel}
+              </a>
+            </div>
+          </div>
 
-              <div className="md:col-span-7 flex flex-col justify-center">
-                <p className="text-sm text-muted-foreground mb-4">
-                  <time>{story.date}</time>
-                  <span className="mx-2 text-border" aria-hidden="true">
-                    ·
-                  </span>
-                  {story.category}
-                </p>
-
-                <h3 className="text-2xl md:text-[2rem] font-black text-foreground leading-[1.08] tracking-tight mb-3 max-w-xl">
-                  {story.title}
-                </h3>
-                <p className="text-muted-foreground text-sm md:text-base leading-relaxed max-w-2xl mb-7">{story.summary}</p>
-
-                <a
-                  href={story.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group inline-flex w-fit items-center gap-2 text-sm font-semibold text-foreground underline decoration-border underline-offset-4 hover:text-brand-red hover:decoration-brand-red transition-colors"
-                >
-                  {story.linkLabel}
-                  <ArrowUpRight
-                    size={15}
-                    aria-hidden="true"
-                    className="transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
-                  />
-                </a>
-              </div>
-            </article>
-          ))}
+          {/* Carnegie Young Leaders */}
+          <div className="relative aspect-[3/2] bg-white lg:col-start-2 lg:row-start-1 lg:aspect-auto">
+            <Image
+              src={carnegie.image}
+              alt={carnegie.imageAlt}
+              fill
+              sizes="(max-width: 1024px) 100vw, 480px"
+              className="object-cover object-[64%_50%]"
+            />
+          </div>
+          <div className="flex flex-col justify-center bg-brand-red px-6 py-6 text-white md:px-8 lg:col-start-2 lg:row-start-2">
+            <p className="text-[3.25rem] font-bold leading-none tracking-[-0.04em] md:text-[3.5rem]">
+              {carnegie.funding?.amount}
+            </p>
+            <p className="mt-2 text-base leading-none">{carnegie.funding?.label}</p>
+          </div>
+          <div className="flex flex-col bg-white px-6 pb-7 pt-6 md:px-8 md:pb-8 lg:col-start-2 lg:row-span-4 lg:row-start-3">
+            <p className="text-sm text-black/62">
+              <a href={carnegieProgramUrl} target="_blank" rel="noopener noreferrer" className="transition-colors hover:text-brand-red">
+                {carnegie.kicker}
+              </a>{" "}
+              · {carnegie.date}
+            </p>
+            <h3 className="mt-3 text-[1.75rem] font-bold leading-[1.1] tracking-[-0.02em] md:text-3xl">{carnegie.title}</h3>
+            <p className="mt-4 leading-relaxed text-black/75">{carnegie.summary}</p>
+            <div className="mt-auto pt-7">
+              <a href={carnegie.href} target="_blank" rel="noopener noreferrer" className="btn btn-black">
+                {carnegie.linkLabel}
+              </a>
+            </div>
+          </div>
         </div>
       </div>
     </section>
